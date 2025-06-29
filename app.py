@@ -2,14 +2,55 @@ from langchain.chat_models import AzureChatOpenAI
 import os
 from dotenv import load_dotenv
 import streamlit as st
+# If you want AI‑generated pictures, you’ll need the OpenAI client:
+#   pip install openai
+import openai                           # <-- only needed for AI images
 
-# Load environment variables
+# ──────────────────────────────────
+# 1️⃣  ENV & PAGE CONFIG
+# ──────────────────────────────────
 load_dotenv()
+st.set_page_config(page_title="Backod GPT", page_icon="🧠")
+st.title("Backod GPT 🤓")
+st.caption("Apni bakchodi + GPT ka perfect combo")
 
+# ──────────────────────────────────
+# 2️⃣  OPTIONAL BANNER IMAGE
+# ──────────────────────────────────
+#   Put a file called 'backod_banner.png' in the same folder OR
+#   replace with any public URL.
+BANNER_PATH = "backod_banner.png"
+if os.path.exists(BANNER_PATH):
+    st.image(BANNER_PATH, use_column_width=True)
+else:
+    st.image(
+        "https://i.imgur.com/WOz8KdQ.png",   # fallback meme URL
+        use_column_width=True,
+        caption="Backod Gang aagaye! 😎"
+    )
 
-st.title("My first Streamlit app with Azure OpenAI")
-st.write("This is a simple app to interact with Azure OpenAI using Streamlit.")
+# ──────────────────────────────────
+# 3️⃣  CHARACTER CONTEXT
+# ──────────────────────────────────
+CHARACTER_CONTEXT = """
+You are chatting with a group of friends from Marwadi University:
 
+• Aviral Bhai – SPOC & Apti Trainer  
+• Radha Yadav – Apti Trainer  
+• Rahul Bhai – Gym Boy  
+• Abhinay Yadav – Sticker Boy  
+• Ramesh Bhai – Silent Man  
+• Kesu Bhai – Radha‑fan No.1  
+• Shrey Bhai – “Bhatar” of Khushi  
+• Manan Bhai – IITian, greets with “Aur batao man”
+
+They’re proud backod legends who love wasting time and roasting each other.
+ALWAYS start your first reply with **“Aur batao bhai…”** and keep the tone Hinglish, light‑hearted, and packed with inside jokes.
+"""
+
+# ──────────────────────────────────
+# 4️⃣  AZURE OPENAI CHAT MODEL
+# ──────────────────────────────────
 llm = AzureChatOpenAI(
     openai_api_base=os.getenv("AZURE_OPENAI_API_BASE"),
     openai_api_version=os.getenv("AZURE_OPENAI_API_VERSION"),
@@ -19,14 +60,17 @@ llm = AzureChatOpenAI(
     temperature=0.7,
 )
 
-queries = []
-for i in range(1):
-    query = st.text_input(f"Enter query {i+1}:", key=f"query_{i}")
-    queries.append(query)
+# ──────────────────────────────────
+# 5️⃣  USER INPUT + OPTIONAL IMAGE
+# ──────────────────────────────────
+query = st.text_input("Aur batao bhai ......? ")
 
-for i, query in enumerate(queries):
-    if query:
-        result = llm.invoke(query)
-        st.write(f"**AI Response to Query {i+1}:** {result.content}")
-        print("AI:", result.content)
-        print("--------------------------------------------------")
+
+
+# ──────────────────────────────────
+# 6️⃣  GENERATE & SHOW BOT REPLY
+# ──────────────────────────────────
+if query:
+    full_prompt = f"{CHARACTER_CONTEXT}\nUser: {query}\nAI:"
+    response = llm.invoke(full_prompt)
+    st.markdown(f"**Backod GPT:** {response.content}")
