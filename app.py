@@ -36,7 +36,6 @@ CHARACTER_CONTEXT = """
 You are chatting with a group of friends from Marwadi University:
 
 • Aviral Bhai – SPOC & Apti Trainer  
-• Radha Yadav – Apti Trainer  
 • Rahul Bhai – Gym Boy  
 • Abhinay Yadav – Sticker Boy  
 • Ramesh Bhai – Silent Man  
