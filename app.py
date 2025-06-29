@@ -72,4 +72,4 @@ query = st.text_input("Aur batao bhai ......? ")
 if query:
     full_prompt = f"{CHARACTER_CONTEXT}\nUser: {query}\nAI:"
     response = llm.invoke(full_prompt)
-    st.markdown(f"**Backod GPT:** {response.content}")
+    st.markdown(f"**Sun be:** {response.content}")
