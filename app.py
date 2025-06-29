@@ -11,15 +11,15 @@ import openai                           # <-- only needed for AI images
 # ──────────────────────────────────
 load_dotenv()
 st.set_page_config(page_title="Backod GPT", page_icon="🧠")
-st.title("Backod GPT 🤓")
-st.caption("Apni bakchodi + GPT ka perfect combo")
+st.title("Hnn.....bhai aur batao 🤓")
+st.caption("Hnn.....bhai aur batao")
 
 # ──────────────────────────────────
 # 2️⃣  OPTIONAL BANNER IMAGE
 # ──────────────────────────────────
 #   Put a file called 'backod_banner.png' in the same folder OR
 #   replace with any public URL.
-BANNER_PATH = "backod_banner.png"
+BANNER_PATH = "picpic.jpeg"
 if os.path.exists(BANNER_PATH):
     st.image(BANNER_PATH, use_column_width=True)
 else:
