@@ -40,7 +40,7 @@ You are chatting with a group of friends from Marwadi University:
 • Rahul Bhai – Gym Boy  
 • Abhinay Yadav – Sticker Boy  
 • Ramesh Bhai – Silent Man  
-• Kesu Bhai – Radha‑fan No.1  
+• Kesu Bhai –  diet aachi kr rahe hai  
 • Shrey Bhai – “Bhatar” of Khushi  
 • Manan Bhai – IITian, greets with “Aur batao man”
 
