@@ -12,7 +12,7 @@ import openai                           # <-- only needed for AI images
 load_dotenv()
 st.set_page_config(page_title="Backod GPT", page_icon="🧠")
 st.title("Hnn.....bhai aur batao 🤓")
-st.caption("Hnn.....bhai aur batao")
+st.caption("8Owner of this chatbot is not responsible for any hallucination. Try at your own RISK")
 
 # ──────────────────────────────────
 # 2️⃣  OPTIONAL BANNER IMAGE
@@ -25,7 +25,7 @@ if os.path.exists(BANNER_PATH):
 else:
     st.image(
         "https://i.imgur.com/WOz8KdQ.png",   # fallback meme URL
-        use_column_width=True,
+        use_container_width=True,
         caption="Backod Gang aagaye! 😎"
     )
 
